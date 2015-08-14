@@ -7,34 +7,23 @@
 
 				   		<!-- Blog Posts -->
 				    	<div class="col-sm-8">
+				    		<% @articles.each do |article| %>
 							<div class="blog-post mb40">
 		                        <img class="img-responsive full-width" src="images/backgrounds/stock10.jpg" alt="">
 		                        <div class="blog-post-holder">
 		                            <ul class="list-inline posted-info">
-		                                <li>By <a href="#">Denis Samardjiev</a></li>
-		                                <li>In <a href="#">Design</a></li>
-		                                <li>Posted January 1, 2015</li>
+		                                <li>By <%= link_to article.user.name, article.user %></li>
+		                                <li>In <%= link_to artcile.category.name, article.category %></li>
+		                                <li><%= article.created_at %></li>
 		                            </ul>
 		                            <hr align="left" class="mt15 mb10" style="width:50px;">
-		                            <h2><a href="#">This is the offical post of the blog</a></h2>
+		                            <h1><a href="#"><%= article.name %></a></h2>
 		                            <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur...</p>
-		                            <a href="#" class="btn btn-rw btn-primary mt10">Read more</a>
+		                            <%= link_to artcile.name, article, :class => "btn btn-rw btn-primary mt10" %>
 		                        </div>                
 		                    </div>
-		                    <div class="blog-post mb40">
-		                        <img class="img-responsive full-width" src="images/backgrounds/stock11.jpg" alt="">
-		                        <div class="blog-post-holder">
-		                            <ul class="list-inline posted-info">
-		                                <li>By <a href="#">Denis Samardjiev</a></li>
-		                                <li>In <a href="#">Design</a></li>
-		                                <li>Posted January 1, 2015</li>
-		                            </ul>
-		                            <hr align="left" class="mt15 mb10" style="width:50px;">
-		                            <h2><a href="#">Another post about something, seaguls</a></h2>
-		                            <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur...</p>
-		                            <a href="#" class="btn btn-rw btn-primary mt10">Read more</a>
-		                        </div>                
-		                    </div>
+		                    <% end %>
+
 							<nav class="text-center">
 								<ul class="pagination no-margin">
 									<li>

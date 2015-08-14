@@ -57,9 +57,9 @@ Author:Denis Samardjiev
 -------------------------------------------------------------- */
 body {
 	background:#fff;
-	font:normal 14px 'Open Sans', sans-serif;
+	font:normal 16px 'Arial', sans-serif;
 	font-weight:300;
-	color:#333333;
+	color:#222222;
 	height:100%;
 	line-height:1.6;
 	min-height:100% !important;
