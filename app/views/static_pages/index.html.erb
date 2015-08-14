@@ -8,20 +8,20 @@
 				   		<!-- Blog Posts -->
 				    	<div class="col-sm-8">
 				    		<% @articles.each do |article| %>
-							<div class="blog-post mb40">
-		                        <img class="img-responsive full-width" src="images/backgrounds/stock10.jpg" alt="">
-		                        <div class="blog-post-holder">
-		                            <ul class="list-inline posted-info">
-		                                <li>By <%= link_to article.user.name, article.user %></li>
-		                                <li>In <%= link_to artcile.category.name, article.category %></li>
-		                                <li><%= article.created_at %></li>
-		                            </ul>
-		                            <hr align="left" class="mt15 mb10" style="width:50px;">
-		                            <h1><a href="#"><%= article.name %></a></h2>
-		                            <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur...</p>
-		                            <%= link_to artcile.name, article, :class => "btn btn-rw btn-primary mt10" %>
-		                        </div>                
-		                    </div>
+								<div class="blog-post mb40">
+			                        <img class="img-responsive full-width" src="images/backgrounds/stock10.jpg" alt="">
+			                        <div class="blog-post-holder">
+			                            <ul class="list-inline posted-info">
+			                                <li>By <%= link_to article.user.name, article.user %></li>
+			                                <li>In <%= link_to artcile.category.name, article.category %></li>
+			                                <li><%= article.created_at %></li>
+			                            </ul>
+			                            <hr align="left" class="mt15 mb10" style="width:50px;">
+			                            <h1><a href="#"><%= article.name %></a></h2>
+			                            <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur...</p>
+			                            <%= link_to artcile.name, article, :class => "btn btn-rw btn-primary mt10" %>
+			                        </div>                
+			                    </div>
 		                    <% end %>
 
 							<nav class="text-center">
@@ -47,6 +47,14 @@
 
 				        <!-- Sidebar -->
 				        <div class="col-sm-4">
+				        	<% if current_user %>
+				        	<div class="text-center text-white">
+							    <div class="content-box content-box-bordered">
+							        <div class="btn btn-success" style="font-size:18px; font-weight: bold">Написать статью</div>
+							    </div>
+							</div>
+							<% end %>
+
 				        	<div class="content-box content-box-bordered mt30-xs mb30">
 						        <span class="ion-beaker bordered-icon-sm"></span>
 						        <h4 class="pt15">Our Blog</h4>
@@ -65,21 +73,21 @@
 							    <div class="tab-pane in active" id="posts">
 		                            <ul class="media-list">
 		                                <li class="media">
-		                                    <a class="pull-left" href="#"><img class="media-object" src="http://lorempixel.com/output/city-q-c-80-80-5.jpg" width="80" height="80" alt="image"></a>
+		                                    <a class="pull-left" href="#"><img class="media-object" src="80-5.jpg" width="80" height="80" alt="image"></a>
 		                                    <div class="media-body">
 		                                        <p class="media-heading"><a href="#">Lorem ipsum dolor sit amet aut consectetur adipisicing elitl libero</a></p>
 		                                        <small>5 Jan, 2015<br><em><a href="#">Web,</a> <a href="#">Webdesign</a></em></small>
 		                                    </div>
 		                                </li>
 		                                <li class="media">
-		                                    <a class="pull-left" href="#"><img class="media-object" src="http://lorempixel.com/output/technics-q-c-80-80-9.jpg" width="80" height="80" alt="image"></a>
+		                                    <a class="pull-left" href="#"><img class="media-object" src="-80-9.jpg" width="80" height="80" alt="image"></a>
 		                                    <div class="media-body">
 		                                        <p class="media-heading"><a href="#">Lorem ipsum dolor sit amet in consectetur adipisicing</a></p>
 		                                        <small>17 Jan, 2015<br><em><a href="#">Artificial Intelligence</a></em></small>  
 		                                    </div>
 		                                </li>
 		                                <li class="media">
-		                                    <a class="pull-left" href="#"><img class="media-object" src="http://lorempixel.com/output/animals-q-c-80-80-3.jpg" width="80" height="80" alt="image"></a>
+		                                    <a class="pull-left" href="#"><img class="media-object" src="-80-80-3.jpg" width="80" height="80" alt="image"></a>
 		                                    <div class="media-body">
 		                                        <p class="media-heading"><a href="#">Sit amet consectetur adipisicing elit incidunt minus</a></p>
 		                                        <small>23 Jan, 2015<br><em><a href="#">Art,</a> <a href="#">Lifestyles</a></em></small>   

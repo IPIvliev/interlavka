@@ -782,7 +782,7 @@ ul.list-arrow-2-color li:before {
 	transition:all 0.4s ease-in-out;
 }
 
-.css-logo { float:left; margin-right:8px; height:19px; width:19px; border-radius:19px; background-color:#ff7454;margin-top:5px; }
+.css-logo { float:left; margin-right:8px; height:19px; font-size: 40px; width:19px; border-radius:19px; background-color:#ff7454;margin-top:5px; }
 
 .raleway-logo {
 	width:115px;
