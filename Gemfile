@@ -27,6 +27,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.4.1'
 gem 'omniauth'
 
+#Text
+gem 'russian', '~> 0.6.0'
+gem 'kaminari'
+
+# Images
+gem 'carrierwave'
+gem 'rmagick', :require => 'RMagick'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

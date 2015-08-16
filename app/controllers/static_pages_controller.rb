@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
   def index
-  	@articles = Article.all
+  	@articles = Article.order("created_at DESC").page params[:page]
+  end
+
+  def contacts
   end
 end

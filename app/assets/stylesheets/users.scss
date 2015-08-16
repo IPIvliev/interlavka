@@ -1,0 +1,266 @@
+.profile-info {
+  overflow: hidden;
+  height: 292px;
+}
+
+.profile-info .box {
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  height: 292px;
+  border: 1px solid #c0c0c0;
+  border-radius: 1px;
+}
+
+.profile-info .box.square {
+  width: 302px;
+}
+
+.profile-info .box + .box {
+  margin-left: 18px;
+}
+
+.profile-info .box:last-of-type {
+  float: none;
+  margin-left: 640px;
+}
+
+.profile-info .avatar-hg,
+.profile-info .logo-hg,
+.profile-info .no-avatar-hg {
+  position: absolute;
+  left: 36px;
+  top: 13px;
+}
+
+.profile-info .no-avatar-hg {
+  top: 22px;
+}
+
+.profile-info .status {
+  position: absolute;
+  left: 18px;
+  top: 17px;
+  padding-top: 20px;
+  font-size: 9px;
+  line-height: 12px;
+  text-align: center;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.profile-info .status.new {
+  background: url('/bitrix/templates/3DTODAY/img/icons/duck.png') no-repeat 50% 0;
+}
+
+.profile-info .status.adv {
+  background: url('/bitrix/templates/3DTODAY/img/icons/rocket.png') no-repeat 50% 0;
+}
+
+.profile-info .status.exp {
+  background: url('/bitrix/templates/3DTODAY/img/icons/exp.png') no-repeat 50% 0;
+}
+
+.profile-info .status.guru {
+  background: url('/bitrix/templates/3DTODAY/img/icons/guru.png') no-repeat 50% 0;
+}
+
+.profile-info .rating {
+  position: absolute;
+  right: 18px;
+  top: 17px;
+  font-size: 9px;
+  text-align: right;
+  text-indent: -2px;
+  color: #000;
+  background: url('/bitrix/templates/3DTODAY/img/icons/chart.png') no-repeat 100% 0;
+  text-transform: uppercase;
+}
+
+.profile-info .rating strong {
+  display: block;
+  margin: -3px 22px -1px 0;
+  font-size: 14px;
+}
+
+
+.profile-info .opts {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 9px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.profile-info .opts a {
+  display: block;
+  padding-top: 20px;
+  color: #005b7f;
+  background: url('/images/icons/gear.png') no-repeat 50% 0;
+  text-decoration: none;
+}
+
+.profile-info .posted,
+.profile-info .subscribed,
+.profile-info .printed,
+.profile-info .uploaded {
+  box-sizing: border-box;
+  float: left;
+  width: 150px;
+  height: 150px;
+  padding: 40px 0 0 30px;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000;
+}
+
+.profile-info .posted,
+.profile-info .subscribed {
+  border-bottom: 1px dashed #c0c0c0;
+}
+
+.profile-info .subscribed,
+.profile-info .uploaded {
+  border-left: 1px dashed #c0c0c0;
+}
+
+.profile-info .posted big,
+.profile-info .subscribed big,
+.profile-info .printed big,
+.profile-info .uploaded big {
+  display: block;
+  margin-top: 20px;
+  font-size: 38px;
+}
+
+.profile-info .shareexp,
+.profile-info .follow,
+.profile-info .printing {
+  box-sizing: border-box;
+  height: 150px;
+  padding: 20px 0 0 20px;
+}
+
+.profile-info .follow,
+.profile-info .shareexp {
+  border-bottom: 1px dashed #c0c0c0;
+}
+
+section.content.main .profile-info .follow h2,
+section.content.main .profile-info .shareexp h2,
+section.content.main .profile-info .printing h2 {
+  display: block;
+  font: 22px 'PT Serif', Georgia, serif;
+  line-height: 22px;
+  margin-bottom: 15px;
+  color: #050505;
+}
+
+.profile-info .follow a,
+.profile-info .shareexp a {
+  display: inline-block;
+  margin: 0 10px 10px 0;
+}
+
+.profile-info .follow a {
+  margin-right: 15px;
+}
+
+.profile-info .follow label {
+  display: block;
+  height: 25px;
+  line-height: 25px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.profile-info .follow label .jquery-checkbox {
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+}
+
+.profile-info .printing ul {
+  display: block;
+}
+
+.profile-info .printing ul li {
+  float: left;
+  width: 180px;
+  height: 40px;
+}
+
+.profile-info .printing ul li + li {
+  margin-left: 20px;
+}
+
+.profile-info .printing ul li img {
+  float: left;
+  margin-right: 10px;
+  border: 1px solid #c3c3c3;
+  border-radius: 1px;
+}
+
+.profile-info .printing ul li a {
+  float: left;
+  height: 40px;
+  color: #005b7f;
+  text-decoration: none;
+}
+
+.profile-info .printing ul li.add-printer a {
+  padding-left: 50px;
+  background: url('/bitrix/templates/3DTODAY/img/icons/addprinter.png') no-repeat 0 50%;
+}
+
+.profile-info .printing ul li.no-printer {
+  line-height: 42px;
+  padding-left: 50px;
+  color: #878787;
+  background: url('/bitrix/templates/3DTODAY/img/icons/noprinter.png') no-repeat 0 50%;
+}
+
+@media screen and (max-width:1279px) {
+  .profile-info .shareexp {  border-bottom: none; }
+  .profile-info .printing { margin-top: 15px; }
+  section.content.main .profile-info .shareexp h2 {
+    display: none;
+  }
+  
+  section.content.main .profile-info .follow h2,
+  section.content.main .profile-info .printing h2 {
+    font-size: 18px;
+    margin: -15px 0 10px;
+  }
+  
+  .profile-info .printing ul li {
+    display: block;
+    height: auto;
+    float: none;
+    line-height: 20px;
+  }
+  
+  .profile-info .printing ul li + li {
+    margin-left: 0;
+  }
+  
+  .profile-info .printing ul li img {
+    display: none;
+  }
+  
+  .profile-info .printing ul li a {
+    height: auto;
+  }
+  
+  .profile-info .printing ul li.add-printer a {
+    padding-left: 0;
+    font-weight: 700;
+    background: none;
+  }
+  
+  .profile-info .printing ul li.no-printer {
+    padding-left: 0;
+    background: none;
+  }
+}

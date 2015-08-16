@@ -1,0 +1,28 @@
+                            <div class="blog-comment mt30">
+                  <div class="heading mb30"><h4>Комментарии</h4></div>
+                  <ul class="comments">
+                    <% @article.comments.order('created_at DESC').each do |comment| %>
+                    <li class="clearfix">
+                      <img src="http://bootdey.com/img/Content/user_1.jpg" class="avatar" alt="">
+                      <div class="post-comments">
+                          <p class="meta">Dec 18, 2014 <a href="#">John Doe</a> says : <i class="pull-right"><a href="#"><small>Reply</small></a></i></p>
+                          <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.xercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate tiam a sapien odio, sit amet.
+                          </p>
+                      </div>
+                    </li>
+                    <% end %>
+                  </ul>
+                </div>
+                <% if current_user %>
+                    <div class="panel panel-default no-margin">
+                      <div class="panel-body">                
+                        <%= form_for @comment, :url => {:controller => "articles", :action => "comment_create" } do |f| %>
+                            <textarea class="form-control counted" name="message" placeholder="Напишите свой комментарий" rows="5" style="margin-bottom:10px;"></textarea>
+                            <%= hidden_field :article_id, @article.id %>
+                            <h6 class="pull-right" id="counter">320 букв максимум</h6>
+                            <button class="btn btn-rw btn-info" type="submit">Отсавить комментарий</button>
+                        <% end %>
+                      </div>
+                    </div>  
+                  <% end %>   

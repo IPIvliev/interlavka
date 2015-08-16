@@ -10,8 +10,23 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @comment = Comment.new
   end
 
+  def comment_create
+    @comment = current_user.comments.build(params[:comment])
+    @article = Article.find(7)
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.json { render :show, status: :created, location: @article }
+      else
+        format.html { render :new }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   # GET /articles/new
   def new
     @article = Article.new
@@ -24,7 +39,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.build(article_params)
 
     respond_to do |format|
       if @article.save
@@ -69,6 +84,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:name, :text, :image, :category_id, :user_id)
+      params.require(:article).permit(:name, :text, :category_id, :user_id, :image, :image_cache, :remove_image)
     end
 end
