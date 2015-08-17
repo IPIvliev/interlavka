@@ -31,9 +31,15 @@ gem 'omniauth'
 gem 'russian', '~> 0.6.0'
 gem 'kaminari'
 
+#Tables
+gem 'wice_grid'
+
 # Images
 gem 'carrierwave'
-gem 'rmagick', :require => 'RMagick'
+gem 'rmagick'
+
+# Url
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

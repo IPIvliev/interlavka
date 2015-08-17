@@ -1,3 +1,36 @@
+
+
+
+ <!-- Begin Content Section -->
+      <section class="mt40 mb40">
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-8">
+                <%= 
+              grid(@articles) do |g|
+                 g.column name: 'Title' do |p|
+                   p.name
+                 end
+                 g.column name: 'Author' do |p|
+                   p.user.name
+                 end
+                g.column name: 'Показать' do |article|
+                  link_to('Показать', article_path(article))
+                end
+                g.column name: 'Изменить' do |article|
+                  link_to('Изменить', edit_article_path(article))
+                end
+                g.column name: 'Удалить' do |article|
+                  link_to('Удалить', article, method: :delete, data: { confirm: 'Вы уверены?' })
+                end
+              end
+          %>
+                </div>
+              <%= render "/static_pages/column" %>
+          </div>
+      </section><!-- /content -->
+      <!-- End Content Section -->
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Articles</h1>

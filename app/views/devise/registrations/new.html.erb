@@ -7,28 +7,23 @@
 						<!-- Begin Login -->
 						<div class="col-sm-6">
 							<div class="panel no-margin panel-default">
-							    <div class="panel-heading">Login to your account</div>
+							    <div class="panel-heading">Войти в свой аккаунт</div>
 							    <div class="panel-body">
 							        <form role="form">
 							            <div class="form-group">
 							                <div class="input-group">
 							                    <div class="input-group-addon"><span class="ion-android-mail" style="font-size:9px;"></span></div>
-							                    <input class="form-control" type="email" placeholder="Enter email">
+							                    <input class="form-control" type="email" placeholder="Email">
 							                </div>
 							            </div>
 							            <div class="form-group">
 							            	<div class="input-group">
 							                    <div class="input-group-addon"><span class="ion-ios7-locked"></span></div>
-							                	<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+							                	<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Пароль">
 							                </div>
 							            </div>
-							            <div class="checkbox">
-							                <label>
-							                  <input type="checkbox"> Remember me
-							                </label>
-							            </div>
 							            <hr class="mb20 mt15">
-							            <button type="submit" class="btn btn-rw btn-primary">Submit</button> &nbsp;&nbsp;&nbsp;<small><a href="#">Forgot your password?</a></small>
+							            <button type="submit" class="btn btn-rw btn-primary">Войти</button> &nbsp;&nbsp;&nbsp;<small><a href="#">Забыли пароль?</a></small>
 							        </form><!-- /form -->
 							    </div><!-- /panel body -->
 							</div><!-- /panel -->
@@ -38,7 +33,7 @@
 						<!-- Begin Register -->
 						<div class="col-sm-6 mt30-xs">
 							<div class="panel no-margin panel-default">
-							    <div class="panel-heading">Create an account</div>
+							    <div class="panel-heading">Регистрация</div>
 							    <div class="panel-body">
 							    	
 
@@ -47,35 +42,27 @@
 							            <div class="form-group">
 							                <div class="input-group">
 							                    <div class="input-group-addon"><span class="ion-android-mail" style="font-size:9px;"></span></div>
-							                    <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Enter email" %>
+							                    <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Ваш email", :required => true %>
 							                </div>
 							            </div>
 							            <div class="form-group">
 							            	<div class="input-group">
 							                    <div class="input-group-addon"><span class="ion-ios7-locked"></span></div>
-							                	<%= f.password_field :password, autocomplete: "off", :class => "form-control", :id => "exampleInputPassword3", :placeholder => "Password" %>
+							                	<%= f.password_field :password, autocomplete: "off", :class => "form-control", :id => "exampleInputPassword3", :placeholder => "Пароль", :required => true %>
 							                </div>
 							            </div>
 							            <div class="form-group">
 							            	<div class="input-group">
 							                    <div class="input-group-addon"><span class="ion-ios7-locked"></span></div>
-							                	<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :id => "exampleInputPassword4", :placeholder => "Confirm Password" %>
+							                	<%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :id => "exampleInputPassword4", :placeholder => "Повторите пароль", :required => true %>
 							                </div>
-							            </div>
-							            <div class="checkbox">
-							                <label>
-							                  <input type="checkbox"> I read the terms of service.
-							                </label>
 							            </div>
 							            <hr class="mb20 mt20">
 							            <div class="form-group">
-							                <input type="email" class="form-control" id="firstName" placeholder="First Name">
-							            </div>
-							            <div class="form-group">
-							                <input type="email" class="form-control" id="lastName" placeholder="Last Name">
+							              <%= f.text_field :name, :class => "form-control", :id => "firstName", :placeholder => "Ваше Имя", :required => true %>
 							            </div>
 							            <hr class="mt20 mb20">
-							            <%= f.submit "Sign up", :class => "btn btn-rw btn-primary" %>
+							            <%= f.submit "Зарегистрироваться", :class => "btn btn-rw btn-primary" %>
 							        <% end %>
 							    </div><!-- /panel body -->
 							</div><!-- /panel -->
