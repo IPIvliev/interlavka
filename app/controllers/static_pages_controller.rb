@@ -4,5 +4,6 @@ class StaticPagesController < ApplicationController
   end
 
   def contacts
+  	add_breadcrumb "Контакты", "/contacts.html"
   end
 end

@@ -4,11 +4,11 @@
                   <ul class="comments">
                     <% @article.comments.order('created_at DESC').each do |comment| %>
                     <li class="clearfix">
-                      <img src="http://bootdey.com/img/Content/user_1.jpg" class="avatar" alt="">
+                      <%= image_tag(comment.user.avatar.thumb.url, :class => "avatar", :width => "80", :height => "80", :alt => comment.user.name) if comment.user.present? %>
                       <div class="post-comments">
-                          <p class="meta">Dec 18, 2014 <a href="#">John Doe</a> says : <i class="pull-right"><a href="#"><small>Reply</small></a></i></p>
+                          <p class="meta"><%= link_to comment.user.name, comment.user if comment.user.present? %> <%= Russian::strftime(comment.created_at, "%d %B %Y") %> </p>
                           <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.xercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate tiam a sapien odio, sit amet.
+                              <%= truncate( raw( sanitize(comment.text, :tags => %w(table tr td p strong), :attributes => %w(id class style) ) ), :length => 320, :omission => "...") %>
                           </p>
                       </div>
                     </li>
@@ -17,12 +17,23 @@
                 </div>
                 <% end %>
                 <% if current_user %>
+                      <script>
+                        function countChar(val) {
+                          var len = val.value.length;
+                          if (len >= 320) {
+                            val.value = val.value.substring(0, 320);
+                          } else {
+                            $('#charNum').text(320 - len);
+                          }
+                        };
+                      </script>
+                      <br>
                     <div class="panel panel-default no-margin">
                       <div class="panel-body">                
                         <%= form_for @comment, :url => {:controller => "articles", :action => "comment_create" } do |f| %>
-                            <textarea class="form-control counted" name="message" placeholder="Напишите свой комментарий" rows="5" style="margin-bottom:10px;"></textarea>
-                            <%= hidden_field :article_id, @article.id %>
-                            <h6 class="pull-right" id="counter">320 букв максимум</h6>
+                            <%= f.text_area :text, :class => "form-control counted", :placeholder => "Напишите свой комментарий", :rows => "5", :style => "margin-bottom:10px;", :required => true, :onkeyup => "countChar(this)", :id => "field" %>
+                            <%= f.hidden_field :article_id, :value => @article.id %>
+                            <h6 class="pull-right" id="counter">320 букв максимум | Осталось <span id="charNum">320</span></h6>
                             <button class="btn btn-rw btn-info" type="submit">Отсавить комментарий</button>
                         <% end %>
                       </div>

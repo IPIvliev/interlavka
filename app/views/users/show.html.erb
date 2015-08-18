@@ -1,17 +1,20 @@
 <div class="container only-one">
         
 	    	    <section class="content full-width main">
-	      	      <h3><%= @user.name %><small><%= link_to "редактировать", edit_user_path(current_user) if @user==current_user %></small></h3>
+	    	    <br>
+	      	      <h3><%= @user.name %><small><%= link_to "редактировать", edit_user_registration_path(current_user) if current_user == @user %></small></h3>
 	      	    
 	
 		<div class="profile-info">
                     <div class="box square">
-						<div class="avatar-hg" style="background-image:url('/upload/blog/avatar/1ed/r_1439571752950.jpeg')"><ins><!-- --></ins><del><!-- --></del></div>
+						<%= image_tag current_user.avatar.url %>
+					
                                             </div>
 
                     <div class="box square">
-                        <div class="posted">Постов<big><%= @user.articles.count %></big></div>
-                        <!-- <div class="subscribed">Подписчиков<big>0</big></div>
+                        <div class="posted">Статей<big><%= @user.articles.count %></big></div>
+                        <div class="subscribed">Комментариев<big><%= @user.comments.count %></big></div>
+                        <!--
         		       		<div class="printed" rel="/monthly-rating.php">Рейтинг<big>0</big></div>
 		                    <div class="uploaded">Загруженных<br>схем<big>0</big></div> -->
                     </div>
@@ -19,43 +22,48 @@
                     <div class="box">
 						                        <div class="shareexp follow">
                             <h2>Делитесь своим опытом:</h2>
-                            <%= link_to "Написать пост", new_article_path, :class => "btn btn-success" %>
+                            <%= link_to "Написать статью", new_article_path, :class => "btn btn-success" %>
                             <!-- <%= link_to "Добавить схему", "#", :class => "btn btn-info" %> -->
 
-                            <label>
+                            <!-- <label>
                                 <a href="/subscribe.php" style="color:#005b7f;margin-left: 30px;">Управление рассылками &raquo;</a>
                             </label>
+                        -->
                         </div>
                                                 <div class="printing">
 			                                <h2>Настройки:</h2>
-                            <%= link_to "Изменить профайл", edit_user_path(current_user) if current_user == @user %>
-				 				                          
+				 			<%= link_to "Изменить профайл", edit_user_registration_path(current_user) if current_user == @user %>	                          
                                                     </div>
                     </div>
                 </div>
                 <hr class="mt15 mb15">
 <div class="row">
-	<div class="col-sm-8">
-						    		<% @user.articles.order('created_at DESC').each do |article| %>
-								<div class="blog-post mb40">
-			                        <%= image_tag article.image.url, :class => "img-responsive full-width" if article.image? %> 
-			                        <div class="blog-post-holder">
-			                            <ul class="list-inline posted-info">
-		                                    <li><strong>Автор:</strong> <%= link_to article.user.name, article.user %></li>
-		                                    <li><strong>Категория:</strong> <%= article.category.name if article.category %></li>
-		                                    <li><strong>Создано:</strong> <%= Russian::strftime(article.created_at, "%d %B %Y") %></li>
-		                                    <% if current_user == article.user %>
-                                      			<li><%= link_to "Редактировать статью", edit_article_path(article) %></li>
-                                    		<% end %>
-			                            </ul>
-			                            <hr align="left" class="mt15 mb10" style="width:50px;">
-			                            <h1><%= link_to article.name, article %></h1>
-			                            <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin sed. Cras erat est, euismod id congue sed, sollicitudin sed odio. Nullam non metus in mi rhoncus efficitur...</p>
-			                            <%= link_to article.name, article, :class => "btn btn-rw btn-primary mt10" %>
-			                        </div>                
-			                    </div>
-		                    <% end %>
 
+	<div class="col-sm-8">
+		<h3>Статьи пользователя</h3>
+						    		<% @articles.each do |article| %>
+					<div class="blog-post mb40">
+                        <%= image_tag article.image.url, :class => "img-responsive full-width" if article.image? %> 
+                        <div class="blog-post-holder">
+                            <ul class="list-inline posted-info">
+                                <li><strong>Автор:</strong> <%= link_to article.user.name, article.user if article.user.present? %></li>
+                                <li><strong>Категория:</strong> <%= article.category.name if article.category %></li>
+                                <li><strong>Создано:</strong> <%= Russian::strftime(article.created_at, "%d %B %Y") %></li>
+                                <% if current_user == article.user %>
+                          			<li><%= link_to "Редактировать статью", edit_article_path(article) %></li>
+                        		<% end %>
+                            </ul>
+                            <hr align="left" class="mt15 mb10" style="width:50px;">
+                            <h1><%= link_to article.name, article %></h1>
+                            <p>
+                            	<%= truncate( raw( sanitize(article.text, :tags => %w(table tr td p strong), :attributes => %w(id class style) ) ), :length => 200, :omission => "...") %></p>
+                            <%= link_to "Читать полностью ::.", article, :class => "btn btn-rw btn-primary mt10" %>
+                        </div>                
+                    </div>
+		                    <% end %>
+				<nav class="text-center">
+					<%= paginate @articles %>
+				</nav>
 	</div>
 	
 

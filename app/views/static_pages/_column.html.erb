@@ -44,12 +44,14 @@
     <div class="tab-content mb30">
         <div class="tab-pane in active" id="posts">
             <ul class="media-list">
-                <% Comment.limit(3).each do |comment| %>
+                <% Comment.order('created_at DESC').limit(3).each do |comment| %>
                     <li class="media">
-                        <a class="pull-left" href="#"><img class="media-object" src="80-5.jpg" width="80" height="80" alt="image"></a>
+                        <span class="pull-left">
+                            <%= image_tag(comment.user.avatar.thumb.url, :class => "media-object", :width => "80", :height => "80", :alt => comment.user.name) if comment.user.present? %>
+                        </span>
                         <div class="media-body">
-                            <p class="media-heading"><a href="#">Lorem ipsum dolor sit amet aut consectetur adipisicing elitl libero</a></p>
-                            <small>5 Jan, 2015<br><em><a href="#">Web,</a> <a href="#">Webdesign</a></em></small>
+                            <%= link_to "<p class='media-heading'>#{truncate( raw( sanitize(comment.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 100, :omission => "...")} </p>".html_safe, comment.article %>
+                            <small><%= Russian::strftime(comment.created_at, "%d %B %Y") %></small>
                         </div>
                     </li>
                 <% end %>

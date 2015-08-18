@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  include ActionView::Helpers::TextHelper
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
@@ -10,16 +11,21 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    add_breadcrumb @article.name, article_path(@article)
+
     @comment = Comment.new
+
+    set_meta_tags :title => @article.name,
+              :description => @article.description,
+              :keywords => @article.keywords
   end
 
   def comment_create
-    @comment = current_user.comments.build(params[:comment])
-    @article = Article.find(7)
+    @comment = current_user.comments.build(params[:comment].permit(:text, :user_id, :article_id))
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to @comment.article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -84,6 +90,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:name, :text, :category_id, :user_id, :image, :image_cache, :remove_image)
+      params.require(:article).permit(:name, :description, :keywords, :text, :category_id, :user_id, :image, :image_cache, :remove_image)
     end
 end

@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @articles = User.find(params[:id]).articles.order("created_at DESC").page params[:page]
   end
 
   private
@@ -20,6 +21,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name, :avatar, :avatar_cache, :remove_avatar)
     end
 end

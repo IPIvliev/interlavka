@@ -15,7 +15,7 @@
 						<div class="row top-bar-row">
 							<!-- Address and Phone -->
 							<div class="col-sm-7 hidden-xs contact-info">
-								<span class="ion-android-system-home home-icon"></span>г. Нижний Новгород<span class="ion-ios7-telephone phone-icon"></span>телефон
+								<span class="ion-android-system-home home-icon"></span>Россия, Украина, Беларусь
 							</div>
 							<!-- Social Buttons -->
 							<div class="col-sm-5 text-right topmenu-holder">
@@ -52,23 +52,23 @@
 				    <div class="modal-dialog modal-sm">
 				        <div class="modal-content">
 				            <div class="modal-header">
-				                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-				                <h4 class="modal-title" id="loginLabel">Login</h4>
+				                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Закрыть</span></button>
+				                <h4 class="modal-title" id="loginLabel">Логин</h4>
 				            </div>
 				            <div class="modal-body">
 					            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 						            <div class="form-group">
-						                <label for="exampleInputEmail1">Email address</label>
-						                <%= f.email_field :email, autofocus: true, :class => "form-control", :id => "exampleInputEmail1", :placeholder => "Enter email" %>
+						                <label for="exampleInputEmail1">Ваш email</label>
+						                <%= f.email_field :email, autofocus: true, :class => "form-control", :id => "exampleInputEmail1", :placeholder => "Введите email" %>
 						            </div>
 						            <div class="form-group">
-						                <label for="exampleInputPassword1">Password</label>
-						                <%= f.password_field :password, autocomplete: "off", :class => "form-control", :id => "exampleInputPassword1", :placeholder => "Password" %>
+						                <label for="exampleInputPassword1">Пароль</label>
+						                <%= f.password_field :password, autocomplete: "off", :class => "form-control", :id => "exampleInputPassword1", :placeholder => "Введите пароль" %>
 						            </div>
 					        
 				            </div>
 				            <div class="modal-footer">
-				                <div><%= f.submit "Log in", :class => "btn btn-rw btn-primary" %></div>
+				                <div><%= f.submit "Войти", :class => "btn btn-rw btn-primary" %></div>
 				            </div>
 				            <% end %>
 				        </div><!-- /modal content -->
@@ -107,7 +107,7 @@
 			                                        <div class="input-group">
 			                                            <input type="text" class="form-control search-input" placeholder="Search...">
 			                                            <span class="input-group-btn">
-			                                                <button class="btn btn-rw btn-primary search-btn" type="button">Go!</button>
+			                                                <button class="btn btn-rw btn-primary search-btn" type="button">Искать!</button>
 			                                            </span>
 			                                        </div><!-- /input group -->  
 			                                    </form><!-- /searh form -->  
@@ -127,16 +127,14 @@
 					<div class="container">
 						<div class="row">
 							<!-- Page Title -->
-							<div class="col-sm-6 col-xs-12">
-								<h1>Blog</h1>
+							<div class="col-sm-4 col-xs-12">
+								<h1>Портал радиоэлектроники</h1>
 							</div>
 
 							<!-- Breadcrumbs -->
-							<div class="col-sm-6">
+							<div class="col-sm-8">
 								<ol class="breadcrumb">
-									<li><span class="ion-home breadcrumb-home"></span><a href="index.html">Home</a></li>
-									<li>Features</li>
-									<li>Blog</li>
+									<%= render_breadcrumbs :tag => :li, :separator => " " %>
 								</ol>
 							</div><!-- /column -->
 						</div><!-- /row -->  
