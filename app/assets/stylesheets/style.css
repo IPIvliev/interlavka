@@ -82,7 +82,7 @@ html {
 }
 
 pre[class*="htmlCodeCollapse"] {
-    border-radius:$border-radius;
+
     margin:0 0 1.336em 0;
     padding:.3em 1em 1em 1em;
     font-size:1.125em;
