@@ -28,6 +28,7 @@ test:
 
 production:
   adapter: mysql2
+  strict: false
   encoding: utf8
   reconnect: false
   database: interlavka
