@@ -27,6 +27,8 @@
         </nav>
     </aside>
 
+    <%= render "/static_pages/adv_column" %>
+
 	<div class="blog-heading"><h3>Последние статьи</h3></div>
 	<ul class="list-unstyled latest-posts">
         <% Article.limit(5).each do |article| %>

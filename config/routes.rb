@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get "/index.html", to: "static_pages#index"
   get "/contacts.html", to: "static_pages#contacts"
+  get "/about.html", to: "static_pages#about"
 
   root 'static_pages#index'
 

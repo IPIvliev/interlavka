@@ -5,6 +5,10 @@
 
 	   		<!-- Blog Posts -->
 	    	<div class="col-sm-8">
+
+                        <!-- Реклама над текстом -->
+                        <%= render "/static_pages/adv_over_text" %>
+
 	    		<% @articles.each do |article| %>
 					<div class="blog-post mb40">
                         <%= image_tag article.image.url, :class => "img-responsive full-width" if article.image? %> 
@@ -29,7 +33,11 @@
 				<nav class="text-center">
 					<%= paginate @articles %>
 				</nav>
-	        </div>
+
+            <!-- Реклама под текстом -->
+            <%= render "/static_pages/adv_under_text" %>
+	        
+            </div>
 
 	        <%= render "column" %>
 	    </div>

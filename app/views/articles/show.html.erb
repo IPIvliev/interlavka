@@ -4,6 +4,9 @@
             <div class="row">
               <div class="col-sm-8">
               <div class="blog-post">
+                        <!-- Реклама над текстом -->
+                        <%= render "/static_pages/adv_over_text" %>
+
                             <%= image_tag @article.image.url, :class => "img-responsive full-width" %> 
                             <div class="blog-post-holder">
                                 <ul class="list-inline posted-info">
@@ -18,8 +21,14 @@
                                 <h1><%= @article.name %></h1>
                               <div style="overflow: hidden; position: relative", width="10px"><%= @article.text.html_safe %></div>
                             </div>  
+
+                  <!-- Реклама под текстом -->
+                  <%= render "/static_pages/adv_under_text" %>
+                  
+                  <!-- Комментарии -->
                   <%= render "comments" %>
                   </div>
+
                 </div>
               <%= render "/static_pages/column" %>
           </div>
