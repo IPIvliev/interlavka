@@ -22,11 +22,31 @@
 							                	<%= f.password_field :password, autocomplete: "off", :class => "form-control", :id => "exampleInputPassword1", :placeholder => "Введите пароль" %>
 							                </div>
 							            </div>
+							            
 							            <hr class="mb20 mt15">
-							            <button type="submit" class="btn btn-rw btn-primary">Войти</button> &nbsp;&nbsp;&nbsp;<small><a href="#">Забыли пароль?</a></small>
+							            <button type="submit" class="btn btn-rw btn-primary">Войти</button>
 							        <% end %><!-- /form -->
 							    </div><!-- /panel body -->
 							</div><!-- /panel -->
+<!--
+							<div class="mb20 mt15"></div>
+							
+							<div class="panel no-margin panel-default">
+							    <div class="panel-heading">Забыли пароль?</div>
+							    <div class="panel-body">
+									<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+							            <div class="form-group">
+							            	<div class="input-group">
+							                    <div class="input-group-addon"><span class="ion-android-mail"></span></div>
+							                	<%= f.email_field :email, autocomplete: "off", :class => "form-control", :id => "exampleInputPassword1", :placeholder => "Для восстановления пароля введите email" %>
+							                </div>
+							            </div>
+									<button type="submit" class="btn btn-rw btn-primary">Восстановить</button>
+									<% end %>
+							    </div>
+							</div>
+-->
+
 						</div><!-- /column-->
 						<!-- End Login -->
 

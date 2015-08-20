@@ -28,14 +28,21 @@
                         };
                       </script>
                       <br>
-                    <div class="panel panel-default no-margin">
-                      <div class="panel-body">                
-                        <%= form_for @comment, :url => {:controller => "articles", :action => "comment_create" } do |f| %>
-                            <%= f.text_area :text, :class => "form-control counted", :placeholder => "Напишите свой комментарий", :rows => "5", :style => "margin-bottom:10px;", :required => true, :onkeyup => "countChar(this)", :id => "field" %>
-                            <%= f.hidden_field :article_id, :value => @article.id %>
-                            <h6 class="pull-right" id="counter">320 букв максимум | Осталось <span id="charNum">320</span></h6>
-                            <button class="btn btn-rw btn-info" type="submit">Отсавить комментарий</button>
-                        <% end %>
-                      </div>
-                    </div>  
-                  <% end %>   
+                  <div class="panel panel-default no-margin">
+                    <div class="panel-body">                
+                      <%= form_for @comment, :url => {:controller => "articles", :action => "comment_create" } do |f| %>
+                          <%= f.text_area :text, :class => "form-control counted", :placeholder => "Напишите свой комментарий", :rows => "5", :style => "margin-bottom:10px;", :required => true, :onkeyup => "countChar(this)", :id => "field" %>
+                          <%= f.hidden_field :article_id, :value => @article.id %>
+                          <h6 class="pull-right" id="counter">320 букв максимум | Осталось <span id="charNum">320</span></h6>
+                          <button class="btn btn-rw btn-info" type="submit">Отсавить комментарий</button>
+                      <% end %>
+                    </div>
+                  </div>
+                <% else %>
+                  <div class="panel panel-default no-margin">
+                    <div class="panel-body"> 
+                    <h3>Есть вопрос или хотите оставить комментарий?</h3>
+                      <%= link_to "Зарегистрируйтесь или войдите в аккаунт", new_user_registration_path, :class => "btn btn-block btn-success" %>
+                    </div>
+                  </div>                
+                <% end %>   

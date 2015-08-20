@@ -13,7 +13,7 @@
                                     <li><strong>Автор:</strong> <%= link_to @article.user.name, @article.user %></li>
                                     <li><strong>Категория:</strong> <%= @article.category.name if @article.category %></li>
                                     <li><strong>Создано:</strong> <%= Russian::strftime(@article.created_at, "%d %B %Y") %></li>
-                                    <% if current_user == @article.user %>
+                                    <% if current_user == @article.user || current_user && current_user.role == "admin" %>
                                       <li><%= link_to "Редактировать статью", edit_article_path(@article) %></li>
                                     <% end %>
                                 </ul>

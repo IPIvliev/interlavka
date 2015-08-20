@@ -1,2 +1,4 @@
  User-agent: *
  Host: interlavka.su
+
+Sitemap: http://interlavka.su/sitemaps/sitemap.xml.gz

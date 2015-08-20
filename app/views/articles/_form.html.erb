@@ -1,12 +1,3 @@
-
-
-    <link rel="stylesheet" href="/cleditor/jquery.cleditor.css" />
-    <script src="/cleditor/jquery.min.js"></script>
-    <script src="/cleditor/jquery.cleditor.min.js"></script>
-    <script>
-        $(document).ready(function () { $("#texxt").cleditor(); });
-    </script>
-
 <div class="panel panel-primary">
     <div class="panel-heading">Написать новую статью</div>
     <div class="panel-body">
@@ -50,21 +41,18 @@
             </div>
             <div class="form-group">
                 <label>Текст</label>
-                <%= f.text_area :text, :class => "form-control", :id => "texxt", :rows => "9", :required => true %>
+                <%= f.text_area :text, :class => "form-control ckeditor", :id => "texxt", :rows => "9", :required => true %>
             </div>
             <%= f.submit "Отправить", :class => "btn btn-rw btn-primary" %>
             <%= link_to "Отменить", :back, :class => "btn btn-royal btn-rw" %>
         <% end %>
     </div><!-- /panel body -->
 </div><!-- /panel -->
-<!--=== End Extras  ===-->
 
-<script type="text/javascript">
-  $(document).ready(function(){
 
-    $('.wysihtml5').each(function(i, elem) {
-      $(elem).wysihtml5();
-    });
-
-  })
-</script>
+    <script>
+        $(document).ready(function () { $("#texxt").cleditor(); });
+    </script>
+    <link rel="stylesheet" href="/cleditor/jquery.cleditor.css" />
+    <script src="/cleditor/jquery.min.js"></script>
+    <script src="/cleditor/jquery.cleditor.min.js"></script>
