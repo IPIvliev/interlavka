@@ -7,7 +7,7 @@ SitemapGenerator::Sitemap.create do
 
   add '/about.html', :changefreq => 'monthly', :priority => 1.0
 
-  Article.find_each do |article|
+  Article.where("view = true").find_each do |article|
     add article_path(article), :lastmod => article.updated_at, :changefreq => 'monthly', :priority => 1.0
   end
 

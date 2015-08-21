@@ -11,6 +11,9 @@
                  g.column name: 'Author' do |p|
                    p.user.name
                  end
+                 g.column name: 'Статус' do |p|
+                   p.view
+                 end
                 g.column name: 'Показать' do |article|
                   link_to('Показать', article_path(article))
                 end

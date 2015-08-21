@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @articles = User.find(params[:id]).articles.order("created_at DESC").page params[:page]
+    @articles = User.find(params[:id]).articles.where("view = true").order("created_at DESC").page params[:page]
   end
 
   private
