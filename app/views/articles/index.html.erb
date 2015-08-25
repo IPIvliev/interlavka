@@ -5,11 +5,15 @@
               <div class="col-sm-8">
                 <%= 
               grid(@articles) do |g|
-                 g.column name: 'Title' do |p|
-                   p.name
+                 g.column name: 'Название' do |p|
+                  p.name
                  end
                  g.column name: 'Author' do |p|
-                   p.user.name
+                   if p.user
+                    link_to p.user.name, user_path(p.user)
+                   else
+                    "Автор удалён"
+                   end
                  end
                  g.column name: 'Статус' do |p|
                    if p.view == false

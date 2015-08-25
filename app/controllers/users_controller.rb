@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :destroy]
 
   # GET /articles
   # GET /articles.json
   def index
-    @users = User.all
+    @users = initialize_grid(User,
+        order:           'users.created_at',
+        order_direction: 'desc',
+    )
   end
 
   # GET /articles/1
@@ -12,6 +15,14 @@ class UsersController < ApplicationController
   def show
     @articles = User.find(params[:id]).articles.where("view = true").order("created_at DESC").page params[:page]
   end
+
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end   
 
   private
     # Use callbacks to share common setup or constraints between actions.
