@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :users
 
   resources :categories  
-  resources :articles
+  resources :articles do
+    member do
+    	put :tog
+  	end
+  end
 
 # Отправка комментариев
   match "/comment_create", via: [:get, :post], :to => 'articles#comment_create'

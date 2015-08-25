@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   include ActionView::Helpers::TextHelper
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :tog]
 
   # GET /articles
   # GET /articles.json
@@ -18,6 +18,12 @@ class ArticlesController < ApplicationController
     set_meta_tags :title => @article.name,
               :description => @article.description,
               :keywords => @article.keywords
+  end
+
+  def tog
+     @article.toggle!(:view)
+    # @article.save
+     redirect_to :back
   end
 
   def comment_create
@@ -90,6 +96,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:name, :description, :keywords, :text, :category_id, :user_id, :image, :image_cache, :remove_image)
+      params.require(:article).permit(:name, :description, :keywords, :text, :category_id, :user_id, :image, :image_cache, :remove_image, :view)
     end
 end
