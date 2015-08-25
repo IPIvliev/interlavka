@@ -5,7 +5,10 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = initialize_grid(Article)
+    @articles = initialize_grid(Article,
+        order:           'articles.created_at',
+        order_direction: 'desc',
+    )
   end
 
   # GET /articles/1
