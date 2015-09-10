@@ -9,14 +9,38 @@
 }
 </style>
 
-    <div class="content-box mt30-xs mb30" id ="aside1">
+    <div id ="aside1">
         <p class="no-margin">
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Большой в правой колонке -->
+            <!-- Квадрат (300 * 250) -->
             <ins class="adsbygoogle"
-                 style="display:inline-block;width:300px;height:600px"
+                 style="display:inline-block;width:300px;height:250px"
                  data-ad-client="ca-pub-7134947387197644"
-                 data-ad-slot="2756944612"></ins>
+                 data-ad-slot="9057059816"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <br><br>
+
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Квадрат (300 * 250) -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7134947387197644"
+                 data-ad-slot="9057059816"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <br><br>
+
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Квадрат (300 * 250) -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-7134947387197644"
+                 data-ad-slot="9057059816"></ins>
             <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
@@ -48,7 +72,7 @@ function Ascroll() {
     a.style.border = '0';
   }
   var Ra = a.getBoundingClientRect(),
-      R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('footer').getBoundingClientRect().top + 10);  // селектор блока, при достижении верхнего края которого нужно открепить прилипающий элемент;  Math.round() только для IE; если ноль заменить на число, то блок будет прилипать до того, как нижний край элемента дойдёт до футера
+      R = Math.round(Ra.top + b.getBoundingClientRect().height - document.querySelector('#stopadv').getBoundingClientRect().top + 30);  // селектор блока, при достижении верхнего края которого нужно открепить прилипающий элемент;  Math.round() только для IE; если ноль заменить на число, то блок будет прилипать до того, как нижний край элемента дойдёт до футера
   if ((Ra.top - P) <= 0) {
     if ((Ra.top - P) <= R) {
       b.className = 'stop';
