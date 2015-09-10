@@ -27,8 +27,6 @@
         </nav>
     </aside>
 
-    <%= render "/static_pages/adv_column" %>
-
 	<div class="blog-heading"><h3>Последние статьи</h3></div>
 	<ul class="list-unstyled latest-posts">
         <% Article.where("view = true").order('created_at DESC').limit(5).each do |article| %>
@@ -61,5 +59,7 @@
         </div>
     </div>
     <!-- End Nav tabs -->
+
+    <%= render "/static_pages/adv_column" %>
 
 </div>
