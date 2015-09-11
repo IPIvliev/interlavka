@@ -10,7 +10,7 @@
   <ul class="pagination no-margin">
     <%= first_page_tag unless current_page.first? %>
     <% each_page do |page| -%>
-        <li><%= page_tag page %></li>
+        <%= page_tag page %>
     <% end -%>
     <%= last_page_tag unless current_page.last? %>
   </ul>
