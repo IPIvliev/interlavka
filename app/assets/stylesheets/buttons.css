@@ -97,6 +97,16 @@
 *
 * The default values for the .button class
 */
+
+.sticky {
+  position: fixed;
+  z-index: 101;
+}
+.stop {
+  position: relative;
+  z-index: 101;
+}
+
 .button {
   color: #666;
   background-color: #EEE;
