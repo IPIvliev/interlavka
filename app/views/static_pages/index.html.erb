@@ -21,7 +21,7 @@
                           			<li><%= link_to "Редактировать статью", edit_article_path(article) %></li>
                         		<% end %>
                             </ul>
-                            <hr align="left" class="mt15 mb10" style="width:50px;">
+                            <hr class="mt15 mb10" style="width:250px;">
                             <h2><%= link_to article.name, article, :style => "color: #FF7454; font-size: 36px; font-weight: 700;" %></h2>
                             <p>
                             	<%= truncate( raw( sanitize(article.text, :tags => %w(strong), :attributes => %w(id class style) ) ), :length => 200, :omission => "...").html_safe %></p>
