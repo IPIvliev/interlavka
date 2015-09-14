@@ -1,5 +1,6 @@
-<!-- Sidebar -->
+
 <div class="col-sm-3">
+    <!--noindex-->
 	<% if current_user && current_user.role == nil %>
     	<div class="text-center text-white">
     	    <div class="content-box content-box-bordered">
@@ -9,7 +10,8 @@
     <% elsif current_user && current_user.role == "admin" %>
         <%= render "/users/admin_menu" %>
 	<% end %>
-   
+    <!--/noindex-->
+
     <aside class="content-box-bordered mt30-xs mb30">
         <nav>
             <ul class="sidebar-nav list-group no-margin" id="sidebar-nav">
@@ -20,9 +22,7 @@
                         <ul id="collapse-<%= category.id %>" class="collapse">
                             <% category.articles.each do |article| %>
                                 <li>
-                                    <h4 style='padding: 3px; font-size: 14px; color: #333; display: block; box-sizing: border-box; list-style: outside none none; text-decoration: none; font: 300 16px/1.6 "Arial",sans-serif;'>
-                                        <%= link_to "<i class='fa fa-angle-right'></i> #{article.name}".html_safe, article %>
-                                    </h4>
+                                    <%= link_to "<i class='fa fa-angle-right'></i> #{article.name}".html_safe, article %>
                                 </li>
                             <% end %>
                         </ul>
@@ -31,6 +31,7 @@
         </nav>
     </aside>
 
+    <!--noindex-->
 	<div class="blog-heading"><span style="margin: 7px 0px; font-size: 20px; color: #666; font-family: 'Raleway',sans-serif; font-weight: bold;">Последние статьи</span></div>
 	<ul class="list-unstyled latest-posts">
         <% Article.where("view = true").order('created_at DESC').limit(3).each do |article| %>
@@ -41,9 +42,9 @@
             </li>
         <% end %>
     </ul>
+    <!--/noindex-->
 
-
-    <!-- Nav tabs -->
+    <!--noindex-->
     <div class="blog-heading"><span style="margin: 7px 0px; font-size: 20px; color: #666; font-family: 'Raleway',sans-serif; font-weight: bold;">Комментарии</span></div>
     <div class="tab-content mb30">
         <div class="tab-pane in active" id="posts">
@@ -62,7 +63,7 @@
             </ul>
         </div>
     </div>
-    <!-- End Nav tabs -->
+    <!--/noindex-->
 
     <%= render "/static_pages/adv_column" %>
 
